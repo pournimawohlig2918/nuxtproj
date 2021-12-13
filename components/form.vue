@@ -1,75 +1,68 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field
-      v-model="name"
-      :counter="10"
-      :rules="nameRules"
-      label="Name"
-      required
-    ></v-text-field>
+  <div class="bars">
+    <!-- <v-toolbar-side-icon class="white--text"></v-toolbar-side-icon>
+    <v-icon right> </v-icon> -->
 
-    <v-text-field
-      v-model="email"
-      :rules="emailRules"
-      label="E-mail"
-      required
-    ></v-text-field>
+    <v-app-bar class="app-bars">
+      <v-toolbar-title>CodeWohlig</v-toolbar-title>
 
-    <v-select
-      v-model="select"
-      :items="items"
-      :rules="[(v) => !!v || 'Item is required']"
-      label="Item"
-      required
-    ></v-select>
+      <v-spacer></v-spacer>
 
-    <v-checkbox
-      v-model="checkbox"
-      :rules="[(v) => !!v || 'You must agree to continue!']"
-      label="Do you agree?"
-      required
-    ></v-checkbox>
+      <v-btn icon>
+        <v-icon> D1 </v-icon>
+      </v-btn>
 
-    <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-      Validate
-    </v-btn>
+      <v-btn icon>
+        <v-icon> C1 </v-icon>
+      </v-btn>
 
-    <v-btn color="error" class="mr-4" @click="reset"> Reset Form </v-btn>
+      <v-btn icon>
+        <v-icon> L1 </v-icon>
+      </v-btn>
 
-    <v-btn color="warning" @click="resetValidation"> Reset Validation </v-btn>
-  </v-form>
+      <!-- <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn> -->
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    </v-app-bar>
+
+    <!-- <v-navs
+        centered
+        class="ml-n9"
+        color="#880E"
+        background-color="deep-purple accent-4"
+      >
+        <v-nav v-for="link in links" :key="link">
+          {{ link }}
+        </v-nav>
+      </v-navs> -->
+  </div>
 </template>
 
 
 <script>
 export default {
-  data: () => ({
-    valid: true,
-    name: '',
-    nameRules: [
-      (v) => !!v || 'Name is required',
-      (v) => (v && v.length <= 10) || 'Name must be less than 10 characters',
-    ],
-    email: '',
-    emailRules: [
-      (v) => !!v || 'E-mail is required',
-      (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
-    select: null,
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-    checkbox: false,
-  }),
-
-  methods: {
-    validate() {
-      this.$refs.form.validate()
-    },
-    reset() {
-      this.$refs.form.reset()
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation()
-    },
-  },
+  // data: () => ({
+  //   links: ['Dashboard', 'Messages', 'Profile', 'Updates'],
+  // }),
 }
 </script>
+<style >
+body {
+  background-image: url(https://images.pexels.com/photos/1342460/pexels-photo-1342460.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  /* background-color: pink; */
+  background-size: cover;
+}
+
+/* .theme--light.v-navs > .v-navs-bar {
+  background-color: transparent;
+   color: white; 
+}
+.v-nav.v-nav {
+   color: white; 
+}
+.theme--light.v-navs > .v-navs-bar .v-nav:not(.v-nav--active) {
+   color: white; 
+  text-align: 'center';
+} */
+</style>
